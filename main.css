@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    position: relative;
+    color: #fff;
+    line-height: 2.3em;
+    display: flex;
+    background: #ff0000;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 50%;
+    transition: all .5s ease-in-out;
+}
+
+.btn.active {
+    box-shadow: 0 0 0 150vh #ff0000
+} 
+
+.btn.close {
+    box-shadow:none;
+}
+
+.btn .play {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    background: #f42e79;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: player 1.5s linear infinite;
+    transition: all .5s ease-in-out;
+    box-shadow: 0 0 3px 3px #2c2c2c,
+                0 0 6px 6px #505050,
+                0 0 9px 9px grey,
+                0 0 12px 12px #fff;
+    cursor: pointer;
+}
+
+.btn .play:active {
+    cursor: grabbing;
+}
+
+@keyframes player {
+    25% {
+        transform: scale(.9);
+    }
+
+    50% {  
+        transform: scale(1.1);
+
+    }
+
+    75% {
+        box-shadow: 0 0 6px 6px grey;
+    }
+
+    100% {
+        box-shadow: 0 0 12px 12px #fff;
+    }
+}
+
+.btn .play:before {
+    position: absolute;
+    content: "";
+    border: 25px solid #fff;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: 0 solid transparent;
+}
+
+.btn p {
+    letter-spacing: 4px;
+}
+
+.play.active {
+    transition-delay: .5s;
+    transform: scale(0)
+}
+
+.play.close {
+    transform: scale(1);
+}
+
+.clip {
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    transition: all 1.5s ease-in-out;
+    transform: scale(0);
+}
+
+.clip.active {
+    display: flex;
+    transform: scale(1);
+    transition-delay: 0.5s;
+}
+
+.clip.close {
+    display: flex;
+    transform: scale(0);
+}
+
+.clip .close {
+    position: absolute;
+    top: 10px;
+    left: 90%;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.8s ease-in-out;
+}
+
+.clip .close:hover:before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    height: 1.2px;
+    transition: all 0.8s ease-in-out;
+    background: #fff;
+}
+
+.clip video {
+    width: 50%;
+    outline: none;
+    box-sizing: content-box;
+    border-radius: 10px;
+    border: 5px solid #fff;
+}
+
+@media (max-width: 767.9px) {
+    .clip video {
+        width: 80%;
+    }
+}

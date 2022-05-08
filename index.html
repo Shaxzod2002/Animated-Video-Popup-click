@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+</head>
+<body>
+    <div class="container">
+        <div class="btn">
+            <div class="play" id="player"></div>
+        </div>
+        <div class="clip" id="clip">
+            <b class="close" id="close">Close</b>
+            <video src="butterfly_-_12060 (Original).mp4" controls></video>
+            
+        </div>
+    </div>
+    
+    <script>
+        let player = document.getElementById('player');
+        let clip = document.getElementById('clip');
+        let btn = document.querySelector('.btn');
+        let close = document.querySelector('.close')
+
+        player.onclick = () => {
+            player.classList.add('active');
+            btn.classList.add('active');
+            clip.classList.add('active');
+            player.classList.remove('close');
+            btn.classList.remove('close');
+            clip.classList.remove('close');
+        }
+
+        close.onclick = () => {
+            player.classList.remove('active');
+            btn.classList.remove('active');
+            clip.classList.remove('active');
+            player.classList.add('close');
+            btn.classList.add('close');
+            clip.classList.add('close');
+        }
+    </script>
+</body>
+</html>
